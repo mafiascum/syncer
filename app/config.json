@@ -1,0 +1,4 @@
+{
+    "qdbhost": "redis",
+    "qdbport": 6379
+}
