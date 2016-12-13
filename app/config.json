@@ -1,4 +1,7 @@
 {
     "qdbhost": "redis",
-    "qdbport": 6379
+    "qdbport": 6379,
+    "msdbpoolmax": 5,
+    "msdbpoolmin": 0,
+    "msdbpoolidle": 10000
 }

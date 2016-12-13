@@ -1,6 +1,6 @@
-const config = require('./config');
+const config = require('./configLoader');
 
 const kue = require('kue');
 module.exports = kue.createQueue({
-    redis: {host: config.qdbhost, port: config.qdbport}
+    redis: {host: config.get('qdbhost'), port: config.get('qdbport')}
 });
