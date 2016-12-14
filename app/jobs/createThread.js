@@ -34,7 +34,8 @@ module.exports = () => {
 
         const user = msdb.db.phpbb_users.findById(messageBody.userId)
               .then(user => {
-                  const currentTime = (new Date()).getTime();
+                  const d = new Date();
+                  const currentTime = Math.round(d.getTime() / 1000);
 
                   return msdb.sequelize.transaction(t => {
                       return Promise.all([
