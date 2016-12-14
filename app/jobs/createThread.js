@@ -77,9 +77,9 @@ module.exports = () => {
 				  topic_last_poster_colour: user.user_colour,
 				  topic_last_post_subject: messageBody.subject
                               }, {where: {topic_id: post.topic_id}, transaction: t})
-                          })
-                          .then(post => {
-                              done(null, post.post_id);
+                                  .then(num => {
+                                      done(null, post.topic_id);
+                                  })
                           })
                   })
                       .catch(err => {
