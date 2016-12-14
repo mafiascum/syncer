@@ -3,19 +3,19 @@ const path = require("path");
 const config = require('./configLoader');
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize(config.get('msdbdatabase'), config.get('msdbusername'), config.get('msdbpassword'), {
-    host: config.get('msdbhost'),
-    port: config.get('msdbport'),
-    dialect: config.get('msdbdialect'),
+const sequelize = new Sequelize(config.get('msDbDatabase'), config.get('msDbUsername'), config.get('msDbPassword'), {
+    host: config.get('msDbHost'),
+    port: config.get('msDbPort'),
+    dialect: config.get('msDbDialect'),
 
     define: {
         timestamps: false
     },
 
     pool: {
-        max: config.get('msdbpoolmax'),
-        min: config.get('msdbpoolmin'),
-        idle: config.get('msdbpoolidle')
+        max: config.get('msDbPoolMax'),
+        min: config.get('msDbPoolMin'),
+        idle: config.get('msDbPoolIdle')
     }
 });
 

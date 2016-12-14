@@ -32,7 +32,6 @@ router.get('/jobs/:jobId', function(req, res) {
             console.error(err);
             res.status(500).end();
         } else {
-            console.log(job);
             switch (job._state) {
             case 'failed':
                 res.status(500).send(job._error);

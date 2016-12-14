@@ -1,7 +1,8 @@
 {
-    "qdbhost": "redis",
-    "qdbport": 6379,
-    "msdbpoolmax": 5,
-    "msdbpoolmin": 0,
-    "msdbpoolidle": 10000
+    "qDbHost": "redis",
+    "qDbPort": 6379,
+    "msDbPoolMax": 5,
+    "msDbPoolMin": 0,
+    "msDbPoolIdle": 10000,
+    "privateTopicForumId": 90
 }
