@@ -4,10 +4,10 @@ const redis = require('redis');
 const router = express.Router();
 const queue = require('../queue');
 const kue = require('kue');
+const passport = require('passport');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-    res.render('index', { title: 'MS Syncer'});
+router.use(passport.authenticate('headerapikey', {session: false}), (req, res, next) => {
+    next()
 });
 
 router.post('/jobs/:jobType', function(req, res) {

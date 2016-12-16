@@ -3,7 +3,12 @@ const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
+
+const passport = require('passport');
+const HeaderAPIKeyStrategy = require('passport-headerapikey').HeaderAPIKeyStrategy;
+
+const config = require('./configLoader');
 
 const routes = require('./routes/index');
 
@@ -24,6 +29,11 @@ require("fs").readdirSync(jobsPath).forEach(function(file) {
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hjs');
+
+//passport
+passport.use(new HeaderAPIKeyStrategy({ header: 'Authorization', prefix: 'Api-Key ' }, false, (apiKey, done) => {
+    return done(null, config.get('apiKey') === apiKey);
+}));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
