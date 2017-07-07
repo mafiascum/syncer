@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  web:
+    build: ./app
+    volumes:
+      - "./app:/src/app"
+    links:
+      - "db:redis"
+    env_file:
+      - env/test.env
+    command: npm test
+
+  db:
+    image: redis
