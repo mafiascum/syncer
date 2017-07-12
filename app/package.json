@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon -L app/bin/www",
-    "test": "mocha --reporter spec app/test"
+    "test": "./app/bin/load_ms_schema && mocha --reporter spec app/test"
   },
   "dependencies": {
     "bbcode-parser": "^1.0.10",
@@ -31,7 +31,7 @@
     "chai": "^3.5.0",
     "chai-as-promised": "^7.1.1",
     "chai-http": "^3.0.0",
-    "mock-kue": "0.0.8",
+    "mock-kue": "git+https://github.com/raweng/mock-kue.git#master",
     "sequelize-mock": "^0.8.1",
     "sinon": "^2.3.6",
     "sinon-chai": "^2.11.0"

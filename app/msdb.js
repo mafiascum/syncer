@@ -7,7 +7,10 @@ const sequelize = new Sequelize(config.get('msDbDatabase'), config.get('msDbUser
     host: config.get('msDbHost'),
     port: config.get('msDbPort'),
     dialect: config.get('msDbDialect'),
-
+    dialectOptions: {
+        multipleStatements: config.get('msDbMultipleStatements') === 'true'
+    },
+    
     define: {
         timestamps: false
     },

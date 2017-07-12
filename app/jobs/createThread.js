@@ -84,11 +84,12 @@ module.exports = () => {
                           })
                   })
                       .catch(err => {
-                          //console.error(err)
+                          console.log(err);
                           done(err);
                       });
               })
               .catch(err => {
+                  console.log(err);
                   done(err);
               })
     })

@@ -7,9 +7,27 @@ services:
       - "./app:/src/app"
     links:
       - "db:redis"
+      - "mstest"
+      - "mstestdb"
     env_file:
       - env/test.env
     command: npm test
 
   db:
     image: redis
+
+  mstestdb:
+    image: mariadb:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=examplepass
+
+  mstest:
+    image: mafiascum/forum:fusion
+    links:
+      - "mstestdb"
+    environment:
+      - DB_HOST=mstestdb
+      - DB_PORT=3306
+      - DB_NAME=ms_phpbb3
+      - DB_USER=root
+      - DB_PASS=examplepass
