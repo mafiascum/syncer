@@ -20,10 +20,18 @@ Run `docker-compose up`
 
 ## API
 
-`POST /publish/:jobId`
+`POST /jobs/:jobType`
 
-Will queue job with the given jobId, if it exists.
+Will queue job with the given jobType, if it exists.
 Valid params, body, headers varies per request.
+
+returns: {jobId: <job id>}
+
+`GET /jobs/:jobId`
+
+Retrives job status and result, if applicable
+
+returns: job object
 
 ##### Current valid jobIds:
 

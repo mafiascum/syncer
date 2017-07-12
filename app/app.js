@@ -22,7 +22,7 @@ const jobsPath = path.join(__dirname, "jobs");
 //set up handlers for all jobs
 require("fs").readdirSync(jobsPath).forEach(function(file) {
     if (file.endsWith('.js')) {
-        require(`${jobsPath}/${file}`)();
+        require(`${jobsPath}/${file}`).register();
     }
 });
 
