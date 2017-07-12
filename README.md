@@ -18,21 +18,27 @@ Run `docker-compose build`.
 
 Run `docker-compose up` 
 
+## Testing
+Run `docker-compose -f docker-compose.test.yml up --abort-on-container-exit`
+
 ## API
 
-`POST /jobs/:jobType`
+### `POST /jobs/:jobType`
 
 Will queue job with the given jobType, if it exists.
 Valid params, body, headers varies per request.
+returns: `{jobId: <job id>}`
 
-returns: {jobId: <job id>}
-
-`GET /jobs/:jobId`
+### `GET /jobs/:jobId`
 
 Retrives job status and result, if applicable
-
 returns: job object
 
-##### Current valid jobIds:
+#### valid job types:
 
-**replaceAllUsers**: Mostly for testing, but theoretically takes the entire list of MafiaScum users and imports them into the rails db.  Should eventually be batched at a certain interval
+**createThread**: creates a phpbb thread with the given parameters.  Required fields:
+* userId: id of user under which to post the thread
+* forumId: forum in which to create the topic
+* subject: thread title
+* message: body of first post in thread
+
